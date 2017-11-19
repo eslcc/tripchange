@@ -14424,3 +14424,7 @@ a.text-dark:hover {
   content: "\F3AA";
 }
 
+a.disabled {
+  cursor: default;
+}
+

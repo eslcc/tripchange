@@ -10,3 +10,7 @@
 
 // Ionicons
 @import "~ionicons/dist/scss/ionicons";
+
+a.disabled {
+  cursor: default;
+}
