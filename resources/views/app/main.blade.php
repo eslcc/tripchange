@@ -6,8 +6,8 @@
   {{-- TODO: group by trip --}}
   @foreach ($data as $person)
     @php
-      $myRequests = $person->changeTargets()->where('source_id', Auth::id());
-      $otherRequests = $person->changeTargets()->where('source_id', '!=', Auth::id());
+      $myRequests = $person->changeTargets()->where('state', '!=', 'rejected')->where('source_id', Auth::id());
+      $otherRequests = $person->changeTargets()->where('state', '!=', 'rejected')->where('source_id', '!=', Auth::id());
     @endphp
     <div class="card">
       <div class="card-body">
