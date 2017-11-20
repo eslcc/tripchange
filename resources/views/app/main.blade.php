@@ -9,17 +9,22 @@
       $myRequests = $person->changeTargets()->where('state', '!=', 'rejected')->where('source_id', Auth::id());
       $otherRequests = $person->changeTargets()->where('state', '!=', 'rejected')->where('source_id', '!=', Auth::id());
     @endphp
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">{{ $person->name }} <span class="badge badge-light">{{ $person->has }}</span></h4>
+    <div class="trip trip-{{ strtolower($person->has) }}">
+      <div class="trip-name">
+        {{ $person->has }}
+      </div>
+      <div class="trip-meta">
+        {{ $person->name }}
         @if ($otherRequests->exists())
-          <div class="card-text"><i>{{ $otherRequests->count() }} {{ str_plural('request', $otherRequests->count() ) }}
-              by other people</i></div>
+          {{ " " }}• {{ $otherRequests->count() }} {{ str_plural('request', $otherRequests->count() ) }}
+              by other people
         @endif
+      </div>
+      <div class="trip-button {{ $myRequests->exists() ? 'disabled' : '' }}">
         @if ($myRequests->exists())
-          <a href="#" class="card-link text-muted disabled">Change already offered</a>
+          <a href="#" class="disabled">Change already offered</a>
         @else
-          <a href="#" onclick="makeRequest({{ $person->id }})" class="card-link text-primary">Offer Change</a>
+          <a href="#" onclick="makeRequest({{ $person->id }})">Offer Change</a>
         @endif
       </div>
     </div>

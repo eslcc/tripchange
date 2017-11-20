@@ -11,17 +11,18 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a href="{{ route('app.notifications') }}" class="nav-link">
-            @if (Auth::user()->unreadNotifications()->exists())
-              <i class="ion ion-ios-notifications text-warning"></i>
-              <span class="badge badge-light">{{ Auth::user()->unreadNotifications()->count() }}</span>
-              <span class="sr-only">unseen notifications</span>
-            @else
-              <i class="ion ion-ios-notifications"></i>
-            @endif
+            <span class="badge badge-light {{ Auth::user()->unreadNotifications()->exists() ? 'text-warning' : '' }}">{{ Auth::user()->unreadNotifications()->count() }}</span>
+            <span class="sr-only">unseen notifications</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Signed in as <b>{{ Auth::user()->name }}</b> (sign out)</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ Auth::user()->name }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarUser">
+            <a class="dropdown-item" href="#">Edit Profile</a>
+            <a class="dropdown-item" href="{{ route('logout') }}">Sign out</a>
+          </div>
         </li>
       </ul>
     </div>

@@ -28,7 +28,7 @@ Route::get('/graph-redirect', 'GraphAuthController@redirect');
 Route::get('logout', function() {
    Auth::logout();
    return redirect()->to('/');
-});
+})->name('logout');
 
 Route::group(['prefix' => 'app', 'middleware' => ['auth']], function() {
     Route::get('signup', 'SignupController@signup')->name('app.signup');

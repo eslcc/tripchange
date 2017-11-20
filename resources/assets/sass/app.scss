@@ -14,3 +14,49 @@
 a.disabled {
   cursor: default;
 }
+
+$place-colours: (
+  'ireland': #F68842,
+  'greece': #2368A4,
+  'elba': #009444,
+  'mallorca': #ed1c24,
+  'sicily': #802881,
+  'tenerife': #f0bf1b,
+  'luxembourg': #14a1dc
+);
+
+@each $place, $colour in $place-colours {
+  .trip-#{$place} {
+    border-left: 6px solid $colour;
+  }
+}
+
+.trip {
+  position: relative;
+  padding: 0.5rem;
+  margin: 0.6rem 0;
+  .trip-name {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .trip-meta {
+    font-style: italic;
+    color: #727272;
+  }
+  .trip-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.5rem;
+    background-color: $brand-primary;
+    &:hover {
+      background-color: darken($brand-primary, 15%);
+    }
+    &.disabled {
+      background-color: #727272;
+    }
+    a {
+      color: #fafafa;
+    }
+  }
+}

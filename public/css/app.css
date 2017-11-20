@@ -14428,3 +14428,67 @@ a.disabled {
   cursor: default;
 }
 
+.trip-ireland {
+  border-left: 6px solid #F68842;
+}
+
+.trip-greece {
+  border-left: 6px solid #2368A4;
+}
+
+.trip-elba {
+  border-left: 6px solid #009444;
+}
+
+.trip-mallorca {
+  border-left: 6px solid #ed1c24;
+}
+
+.trip-sicily {
+  border-left: 6px solid #802881;
+}
+
+.trip-tenerife {
+  border-left: 6px solid #f0bf1b;
+}
+
+.trip-luxembourg {
+  border-left: 6px solid #14a1dc;
+}
+
+.trip {
+  position: relative;
+  padding: 0.5rem;
+  margin: 0.6rem 0;
+}
+
+.trip .trip-name {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.trip .trip-meta {
+  font-style: italic;
+  color: #727272;
+}
+
+.trip .trip-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1.5rem;
+  background-color: #3097D1;
+}
+
+.trip .trip-button:hover {
+  background-color: #216a94;
+}
+
+.trip .trip-button.disabled {
+  background-color: #727272;
+}
+
+.trip .trip-button a {
+  color: #fafafa;
+}
+
